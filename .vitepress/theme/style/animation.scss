@@ -55,16 +55,19 @@
   }
 }
 
-// 加载
-@keyframes loading {
+// 加载旋转（组合动画：旋转 + 透明度变化）
+@keyframes loading-rotate {
   0% {
     opacity: 1;
+    transform: rotate(0deg);
   }
   50% {
-    opacity: 0.4;
+    opacity: 0.6;
+    transform: rotate(-180deg);
   }
   100% {
     opacity: 1;
+    transform: rotate(-360deg);
   }
 }
 

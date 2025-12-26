@@ -32,7 +32,14 @@
         <div class="nav-center">
           <div class="site-menu">
             <div v-for="(item, index) in theme.nav" :key="index" class="menu-item">
-              <span class="link-btn"> {{ item.text }}</span>
+              <span
+                v-if="item.link"
+                class="link-btn"
+                @click="router.go(item.link)"
+              >
+                {{ item.text }}
+              </span>
+              <span v-else class="link-btn"> {{ item.text }}</span>
               <div v-if="item.items" class="link-child">
                 <span
                   v-for="(child, childIndex) in item.items"
@@ -51,23 +58,6 @@
           </span>
         </div>
         <div class="right-nav">
-          <!-- 开往 -->
-          <a
-            class="menu-btn nav-btn travellings"
-            title="开往-友链接力"
-            href="https://www.travellings.cn/go.html"
-            target="_blank"
-          >
-            <i class="iconfont icon-subway"></i>
-          </a>
-          <!-- 随机文章 -->
-          <div
-            class="menu-btn nav-btn"
-            title="随机前往一篇文章"
-            @click="router.go(shufflePost(theme.postData))"
-          >
-            <i class="iconfont icon-shuffle"></i>
-          </div>
           <!-- 搜索 -->
           <div
             v-if="theme.search.enable"

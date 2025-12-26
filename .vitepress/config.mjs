@@ -1,5 +1,4 @@
 import { defineConfig } from "vitepress";
-import { createRssFile } from "./theme/utils/generateRSS.mjs";
 import { withPwa } from "@vite-pwa/vitepress";
 import {
   getAllPosts,
@@ -71,10 +70,6 @@ export default withPwa(
     // transformHtml
     transformHtml: (html) => {
       return jumpRedirect(html, themeConfig);
-    },
-    // buildEnd
-    buildEnd: async (config) => {
-      await createRssFile(config, themeConfig);
     },
     // vite
     vite: {
@@ -172,22 +167,22 @@ export default withPwa(
         background_color: "#efefef",
         icons: [
           {
-            src: "/images/logo/favicon-32x32.webp",
+            src: "/favicon.svg",
             sizes: "32x32",
             type: "image/webp",
           },
           {
-            src: "/images/logo/favicon-96x96.webp",
+            src: "/favicon.svg",
             sizes: "96x96",
             type: "image/webp",
           },
           {
-            src: "/images/logo/favicon-256x256.webp",
+            src: "/favicon.svg",
             sizes: "256x256",
             type: "image/webp",
           },
           {
-            src: "/images/logo/favicon-512x512.webp",
+            src: "/favicon.svg",
             sizes: "512x512",
             type: "image/webp",
           },

@@ -57,7 +57,7 @@ onBeforeUnmount(() => {
   .logo {
     width: 100px;
     height: 100px;
-    animation: loading 2s infinite;
+    animation: loading-rotate 1s infinite linear;
   }
   .tip {
     position: absolute;
